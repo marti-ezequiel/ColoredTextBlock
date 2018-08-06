@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Desktop.Tabs.MvvmTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Desktop.Tabs"
+             xmlns:controls="clr-namespace:Desktop.Controls">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70*" />
+            <ColumnDefinition Width="30*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Content="Results: "
+                />
+        <controls:ColoredTextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                TextWrapping="Wrap"
+                Margin="5"
+            
+                Control="{Binding Path=TextControl, Mode=OneWay}"/>
+        <StackPanel
+                Grid.Row="2"
+                Grid.Column="0"
+                FlowDirection="RightToLeft"
+                Orientation="Horizontal"
+                >
+            <Button 
+                    Padding="15 2 15 2"
+                    Margin="0 5 5 5"
+                    Content="Main Command"
+                
+                    Command="{Binding MainCommand}"
+                    />
+            <Button 
+                    Padding="15 2 15 2"
+                    Margin="5 5 5 5"
+                    Content="Clear Results"
+                
+                    Command="{Binding ClearCommand}"
+                    />
+        </StackPanel>
+    </Grid>
+</UserControl>
